@@ -91,7 +91,7 @@ internal class EDUConnection
                     recvBuffer = _udpClient.Receive(ref source);
                 }
                 
-                if (recvBuffer.SequenceEqual(BDF_COMMANDS.OK.ASCII()))
+                if (recvBuffer.SequenceEqual(BDF_COMMANDS.ACKNOWLEDGE.ASCII()))
                 {
                     _esp32 = source.Address;
                     return BDF_ERROR.NO_ERROR;

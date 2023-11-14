@@ -5,8 +5,8 @@ namespace bdf
     {
         [ASCII("BDF_DISCOVER")]
         DISCOVER,
-        [ASCII("OK")]
-        OK,
+        [ASCII("BDF_ACK")]
+        ACKNOWLEDGE,
         [ASCII("BDF_REQ_HEADER")]
         REQ_HEADER,
         [ASCII("BDF_REQ_RECORD_HEADERS")]
