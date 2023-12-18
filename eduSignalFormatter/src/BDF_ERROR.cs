@@ -10,7 +10,9 @@
         UNRECEIVED_HEADER,
         [Error("File was not opened. Demand headers first.")]
         NO_FILE,
-        [Error("A unknown number of data records is currently unsupported.")]
-        UNKNOWN_NUMBER_OF_DATA_RECORDS_UNSUPPORTED,
+        [Error("A unknown number of signals is invalid.")]
+        UNKNOWN_NUMBER_OF_SIGNALS,
+        [Error("The given IP address is not valid.")]
+        NO_VALID_IP,
     }
 }
