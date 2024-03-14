@@ -26,7 +26,7 @@ internal class EDUConnection
     private const int PORT  = 1212;
     private const int TRIES = 5;
     // Network 
-    private TcpListener _tcpListener;
+    private TcpListener _tcpListener;   
     private TcpClient? _tcpClient;
     // File
     private FileStream?    _fileStream;
@@ -333,6 +333,7 @@ internal class EDUConnection
             int bytesWrittenToBuffer = 0;
             int bytesWritten         = 0;
             int bytesToWrite         = buffer.Length * _bdfHeaderInfo.NumberOfDataRecords;
+            
             while (bytesWritten != bytesToWrite)
             {
                 int bytesRead = netStream.Read(buffer, bytesWrittenToBuffer, buffer.Length - bytesWrittenToBuffer);
@@ -348,12 +349,13 @@ internal class EDUConnection
                     }
                 }
             }
-        });
 
+            stopwatch.Stop();
+            Console.WriteLine($"Time elapsed for transmission: {stopwatch.ElapsedMilliseconds} ms");
+        });
         
         readRecordsTask.Wait();
-        stopwatch.Stop();
-        Console.WriteLine($"Time elapsed for transmission: {stopwatch.ElapsedMilliseconds} ms");
+        
         _fileStream.Close();
         _fileStream = null;
 
